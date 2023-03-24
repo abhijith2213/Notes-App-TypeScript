@@ -14,11 +14,11 @@ export const Note = ({ onDelete }: NoteProps) => {
     <>
       <Row className="align-items-center mb-4">
         <Col>
-          <h1>{note.title}</h1>
+          <h1 className="text-white">{note.title}</h1>
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className=" flex-wrap">
               {note.tags.map((tag) => (
-                <Badge className="text-truncate" key={tag.id}>
+                <Badge className="text-truncate bg-info" key={tag.id}>
                   {tag.label}
                 </Badge>
               ))}
@@ -31,7 +31,7 @@ export const Note = ({ onDelete }: NoteProps) => {
               <Button variant="primary">Edit</Button>
             </Link>
             <Button
-              variant="outline-Danger"
+              variant="outline-danger"
               onClick={() => {
                 onDelete(note.id)
                 navigate("/")
@@ -40,12 +40,12 @@ export const Note = ({ onDelete }: NoteProps) => {
               Delete
             </Button>
             <Link to="/">
-              <Button variant="outline-Secondary">Back</Button>
+              <Button variant="outline-secondary">Back</Button>
             </Link>
           </Stack>
         </Col>
       </Row>
-      <ReactMarkdown>{note.markdown}</ReactMarkdown>
+      <ReactMarkdown className="text-white fs-4">{note.markdown}</ReactMarkdown>
     </>
   )
 }

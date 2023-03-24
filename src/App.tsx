@@ -100,7 +100,7 @@ function App() {
   }
 
   return (
-    <Container className="my-4">
+    <Container className="py-4 container">
       <Routes>
         <Route
           path="/"

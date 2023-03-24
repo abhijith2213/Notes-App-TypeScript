@@ -40,14 +40,32 @@ const NoteForm = ({
         <Row>
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
-              <Form.Control required ref={titleRef} defaultValue={title} />
+              <Form.Label className="text-white">Title</Form.Label>
+              <Form.Control
+                className="bg-dark bg-lighten-xl text-white"
+                placeholder="add your title.."
+                required
+                ref={titleRef}
+                defaultValue={title}
+              />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
               <CreatableReactSelect
+                styles={{
+                  option: (base) => ({
+                    ...base,
+                    background: "#212529",
+                    color: "white",
+                    border: "white 1px ",
+                  }),
+                  control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    backgroundColor: "#212529",
+                  }),
+                }}
                 onCreateOption={(label) => {
                   const newTag = { id: uuidV4(), label }
                   onAddTag(newTag)
@@ -72,8 +90,9 @@ const NoteForm = ({
           </Col>
         </Row>
         <Form.Group controlId="markdown">
-          <Form.Label>Body</Form.Label>
+          <Form.Label className="text-white">Body</Form.Label>
           <Form.Control
+            className="bg-dark bg-lighten-xl text-white"
             defaultValue={markdown}
             required
             as="textarea"

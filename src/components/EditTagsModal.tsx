@@ -17,16 +17,17 @@ export const EditTagsModal = ({
 }: EditTagsModalProps) => {
   return (
     <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Edit Tags</Modal.Title>
+      <Modal.Header closeButton className="bg-dark">
+        <Modal.Title className="text-white">Edit Tags</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="bg-dark">
         <Form>
           <Stack gap={2}>
             {availableTags.map((tag) => (
               <Row key={tag.id}>
                 <Col>
                   <Form.Control
+                    className="text-white bg-dark"
                     type="text"
                     onChange={(e) => updateTag(tag.id, e.target.value)}
                     value={tag.label}

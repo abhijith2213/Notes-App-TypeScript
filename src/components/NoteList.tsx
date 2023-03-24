@@ -39,7 +39,7 @@ const NoteList = ({
     <>
       <Row className="align-items-center mb-4">
         <Col>
-          <h1>Notes</h1>
+          <h1 className="text-info">Notes</h1>
         </Col>
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
@@ -59,18 +59,41 @@ const NoteList = ({
         <Row className="mb-4">
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label className="text-white">Title</Form.Label>
               <Form.Control
+                className="bg-dark bg-lighten-xl text-white"
                 type="text"
                 value={title}
+                placeholder="search by title..."
                 onChange={(e) => setTitle(e.target.value)}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label className="text-white">Tags</Form.Label>
               <ReactSelect
+                styles={{
+                  option: (base) => ({
+                    ...base,
+                    background: "#212529",
+                    color: "white",
+                    border: "white 1px ",
+                  }),
+                  control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    backgroundColor: "#212529",
+                  }),
+                }}
+                theme={(theme) => ({
+                  ...theme,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "hotpink",
+                    primary: "black",
+                    white: "black",
+                  },
+                })}
                 value={selectedTags.map((tag) => {
                   return { label: tag.label, value: tag.id }
                 })}
