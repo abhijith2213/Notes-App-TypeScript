@@ -37,7 +37,7 @@ const NoteList = ({
 
   return (
     <>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-4 ">
         <Col>
           <h1 className="text-info">Notes</h1>
         </Col>
