@@ -52,7 +52,7 @@ const NoteForm = ({
           </Col>
           <Col>
             <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label className="text-white">Tags</Form.Label>
               <CreatableReactSelect
                 styles={{
                   option: (base) => ({
@@ -61,9 +61,10 @@ const NoteForm = ({
                     color: "white",
                     border: "white 1px ",
                   }),
-                  control: (baseStyles, state) => ({
+                  control: (baseStyles) => ({
                     ...baseStyles,
                     backgroundColor: "#212529",
+                    color: "red",
                   }),
                 }}
                 onCreateOption={(label) => {

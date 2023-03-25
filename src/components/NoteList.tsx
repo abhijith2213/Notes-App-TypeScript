@@ -25,12 +25,12 @@ const NoteList = ({
   const filteredNotes = useMemo(() => {
     return notes.filter((note) => {
       return (
-        title === "" ||
-        (note.title.toLowerCase().includes(title.toLowerCase()) &&
-          (selectedTags.length === 0 ||
-            selectedTags.every((tag) =>
-              note.tags.some((noteTag) => noteTag.id === tag.id)
-            )))
+        (title === "" ||
+          note.title.toLowerCase().includes(title.toLowerCase())) &&
+        (selectedTags.length === 0 ||
+          selectedTags.every((tag) =>
+            note.tags.some((noteTag) => noteTag.id === tag.id)
+          ))
       )
     })
   }, [title, selectedTags, notes])
@@ -56,7 +56,7 @@ const NoteList = ({
         </Col>
       </Row>
       <Form>
-        <Row className="mb-4">
+        <Row className="mb-4" xs={1} md={2}>
           <Col>
             <Form.Group controlId="title">
               <Form.Label className="text-white">Title</Form.Label>
@@ -80,9 +80,10 @@ const NoteList = ({
                     color: "white",
                     border: "white 1px ",
                   }),
-                  control: (baseStyles, state) => ({
+                  control: (baseStyles) => ({
                     ...baseStyles,
                     backgroundColor: "#212529",
+                    color: "white",
                   }),
                 }}
                 theme={(theme) => ({
@@ -113,7 +114,7 @@ const NoteList = ({
           </Col>
         </Row>
       </Form>
-      <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
+      <Row xs={1} sm={2} lg={3} xl={4} className="g-5">
         {filteredNotes.map((note) => (
           <Col key={note.id}>
             <NoteCard id={note.id} title={note.title} tags={note.tags} />

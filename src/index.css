@@ -1,7 +1,6 @@
 .container {
   min-height: 100vh;
   min-width: 100vh;
-  overflow-x: hidden;
 }
 #root {
   background-color: #121212;

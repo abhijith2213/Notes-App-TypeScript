@@ -9,6 +9,7 @@ import NoteList from "./components/NoteList"
 import EditNote from "./components/EditNote"
 import { NoteLayout } from "./components/NoteLayout"
 import { Note } from "./components/Note"
+
 export type Note = {
   id: string
 } & NoteData
@@ -93,6 +94,7 @@ function App() {
       })
     })
   }
+
   function deleteTag(id: string) {
     setTags((prevTags) => {
       return prevTags.filter((tag) => tag.id !== id)
